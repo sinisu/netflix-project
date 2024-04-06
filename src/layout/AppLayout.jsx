@@ -9,9 +9,14 @@ import { Outlet } from 'react-router-dom'; /* router 아래의 자손들을 가�
 const AppLayout = () => {
   return (
     <div>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar expand="lg" className="nav-style" variant='dark'>
         <Container fluid>
-          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+          <Navbar.Brand href="#">
+            <img 
+              src='https://logohistory.net/wp-content/uploads/2023/05/Netflix-Logo.png'
+              width={100}
+            />
+            </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav
@@ -30,7 +35,7 @@ const AppLayout = () => {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="outline-success">Search</Button>
+              <Button variant="outline-danger">Search</Button>
             </Form>
           </Navbar.Collapse>
         </Container>
