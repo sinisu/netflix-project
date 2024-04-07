@@ -9,14 +9,11 @@ import { Outlet } from 'react-router-dom'; /* router 아래의 자손들을 가�
 const AppLayout = () => {
   return (
     <div>
-      <Navbar expand="lg" className="nav-style" variant='dark'>
+      <Navbar expand="lg" className="nav-style pt-0 pb-0" variant='dark'>
         <Container fluid>
           <Navbar.Brand href="#">
-            <img 
-              src='https://logohistory.net/wp-content/uploads/2023/05/Netflix-Logo.png'
-              width={100}
-            />
-            </Navbar.Brand>
+            <span className="brand-name">NOTEXT</span>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav

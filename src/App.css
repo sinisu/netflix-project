@@ -19,3 +19,9 @@ body {
     border-color: rgb(252, 175, 175);
     color: white;
 }
+
+.brand-name {
+    color: red;
+    font-size: 2rem;
+    font-weight: 600;
+}
