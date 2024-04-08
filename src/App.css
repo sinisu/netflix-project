@@ -1,5 +1,5 @@
 body {
-    background-color: black;
+    color: white !important;
 }
 
 .nav-style {
@@ -9,7 +9,10 @@ body {
 
 .nav-style input {
     background-color: transparent;
-    color: white;
+}
+
+.nav-style input::placeholder {
+    color: rgb(97, 97, 97);
 }
 
 .nav-style input:focus {
