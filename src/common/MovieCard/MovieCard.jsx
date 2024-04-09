@@ -2,18 +2,12 @@ import React from 'react'
 import { Badge } from 'react-bootstrap'
 import './MovieCard.style.css'
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
+import { getGenre } from '../../hooks/getGenre'
 
 const MovieCard = ({movie}) => {
 
   const {data:genreData} = useMovieGenreQuery();
-  const showGenre = (genreIdList) => {
-    if(!genreData) return []
-    const genreNameList = genreIdList.map((id)=>{
-      const genreObj = genreData.find((genre) => genre.id === id);
-      return genreObj.name
-    })
-    return genreNameList;
-  }
+  const genreNameList = getGenre(genreData,movie.genre_ids)
 
   return (
     <div
@@ -22,7 +16,7 @@ const MovieCard = ({movie}) => {
     >
      <div className='overlay'>
         <h3>{movie.title}</h3>
-        {showGenre(movie.genre_ids).map((id)=><Badge bg="danger" className='me-1'>{id}</Badge>)}
+        {genreNameList.map((id)=><Badge bg="danger" className='me-1'>{id}</Badge>)}
         <div>
             <div>{movie.vote_average}</div>
             <div>{movie.popularity}</div>

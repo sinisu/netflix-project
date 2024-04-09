@@ -5,20 +5,23 @@ import 'react-multi-carousel/lib/styles.css';
 import MovieCard from '../MovieCard/MovieCard';
 
 const MovieSlider = ({title,movies, responsive}) => {
+  const getDevice = () => {
+    if (/Android|iPhone/i.test(navigator.userAgent)) {
+      return false
+    } else { return true}
+  } 
   return (
-    <div className='mt-4'>
-      <h3 className='slide-margin'>{title}</h3>
+    <div className='slide-margin'>
+      <h3 className='slide-title'>{title}</h3>
         <Carousel
             infinite={true}
             centerMode={true}
-            itemClass="carousel-item-padding-40-px"
+            itemClass="movie-slider"
             containerClass="carousel-container"
             responsive={responsive}
-            autoPlay={true}
+            autoPlay={getDevice()}
             autoPlaySpeed={1500}
             removeArrowOnDeviceType={["tablet","mobile"]}
-            autoPlay={responsive !== "mobile" ? true : false}
-            // deviceType={this.props.deviceType}
             >
             {movies.map((movie,index)=><MovieCard movie={movie} key={index} />)}
         </Carousel>
