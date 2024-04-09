@@ -17,7 +17,7 @@ const MovieCard = ({movie}) => {
 
   return (
     <div
-        style={{backgroundImage:"url("+`https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.backdrop_path}`+")"}}
+        style={{backgroundImage:"url("+`https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`+")"}}
         className='movie-card'
     >
      <div className='overlay'>

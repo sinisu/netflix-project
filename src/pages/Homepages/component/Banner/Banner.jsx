@@ -18,7 +18,7 @@ const Banner = () => {
     <div style={{
         backgroundImage:'url('+`https://image.tmdb.org/t/p/original${data?.results[0].poster_path}`+')'
         }}
-        className='banner'
+        className='banner mb-5'
     >
         <div className='text-white banner-text'>
             <h1>{data?.results[0].title}</h1>

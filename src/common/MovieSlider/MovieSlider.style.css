@@ -1,4 +1,9 @@
 .carousel-container{
     overflow: hidden;
-    height: 27.5rem;
+    height: 26rem;
+}
+
+.slide-margin{
+    margin-left: 1rem;
+    margin-bottom: -1.5rem;
 }

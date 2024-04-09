@@ -1,5 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 body {
     color: white !important;
+    font-family: "Mulish", sans-serif;
+}
+
+h1 {
+    font-weight: 600;
+}
+
+h3 {
+    font-weight: 600;
 }
 
 .nav-style {
@@ -26,5 +37,16 @@ body {
 .brand-name {
     color: red;
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 800;
+}
+
+@media screen and (max-width: 60rem) {
+    .nav-style input {
+        height: 2.4rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .nav-style button {
+        height: 2.4rem
+    }
 }

@@ -6,8 +6,8 @@ import MovieCard from '../MovieCard/MovieCard';
 
 const MovieSlider = ({title,movies, responsive}) => {
   return (
-    <div>
-      <h3>{title}</h3>
+    <div className='mt-4'>
+      <h3 className='slide-margin'>{title}</h3>
         <Carousel
             infinite={true}
             centerMode={true}
@@ -16,7 +16,7 @@ const MovieSlider = ({title,movies, responsive}) => {
             responsive={responsive}
             autoPlay={true}
             autoPlaySpeed={1500}
-            removeArrowOnDeviceType={["mobile"]}
+            removeArrowOnDeviceType={["tablet","mobile"]}
             autoPlay={responsive !== "mobile" ? true : false}
             // deviceType={this.props.deviceType}
             >
