@@ -10,7 +10,7 @@
     background: linear-gradient(to top, black, transparent);
     position: absolute;
     left: 0;
-    height: 56lvh;
+    height: 56vh;
     width: 100%;
 }
 
@@ -37,13 +37,14 @@
     .banner {
         border: 0.5px solid rgb(37, 37, 37);
         border-radius: 1rem;
-        margin: 2rem;
+        margin: 4rem 1.5rem 0rem;
+        height: 57lvh;
     }
 
     .banner::before {
         /* background: transparent; */
         border-radius: 1rem;
-        height: 13rem;
+        height: 14rem;
         bottom: 0;
     }
 

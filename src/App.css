@@ -46,9 +46,13 @@ h3 {
     h3 {
         font-size: 1.4rem !important;
     }
-
+    
     .nav-style {
-        background-color: transparent;
+        background:rgba(34, 34, 34, 0.795);
+        position: fixed !important;
+        z-index: 2;
+        width: 100%;
+        top: 0;
     }
 
     .nav-style input {
@@ -58,5 +62,10 @@ h3 {
 
     .nav-style button {
         height: 2.4rem
+    }
+
+    .navbar-toggler {
+        padding: 0rem !important;
+        border: none !important;
     }
 }
