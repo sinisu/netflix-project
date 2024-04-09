@@ -27,3 +27,9 @@
 .banner-text > * {
     z-index: 2;
 }
+
+@media screen {
+    .banner-text {
+        width: 90%;
+    }
+}
