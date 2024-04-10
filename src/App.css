@@ -21,6 +21,7 @@ h3 {
 
 .nav-style input {
     background-color: transparent;
+    color: white;
 }
 
 .nav-style input::placeholder {
@@ -48,7 +49,7 @@ h3 {
     }
     
     .nav-style {
-        background:rgba(34, 34, 34, 0.795);
+        background:rgba(46, 46, 46, 0.795);
         position: fixed !important;
         z-index: 2;
         width: 100%;
@@ -67,5 +68,9 @@ h3 {
     .navbar-toggler {
         padding: 0rem !important;
         border: none !important;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: none !important;
     }
 }
