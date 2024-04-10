@@ -5,6 +5,7 @@ import { Alert } from 'bootstrap'
 import { Container, Row, Col } from 'react-bootstrap'
 import MovieCard from '../../common/MovieCard/MovieCard'
 import ReactPaginate from 'react-paginate';
+import GenreFilter from './component/GenreFilter'
 
 const MoviePage = () => {
   const [query,setQuery] = useSearchParams();
@@ -13,9 +14,9 @@ const MoviePage = () => {
   const handlePageClick = ({selected}) => {
     setPage(selected+1)
   }
-  const { data, isLoadind, isError, error } = useSearchMovieQuery({keyword,page})
+  const { data, isLoading, isError, error } = useSearchMovieQuery({keyword,page})
   console.log(data)
-  if (isLoadind) {
+  if (isLoading) {
     return <h1>Loading ...</h1>
   }
   if (isError) {
@@ -25,7 +26,7 @@ const MoviePage = () => {
     <Container>
       <Row>
         <Col lg={4} xs={12}>
-          필터
+          <GenreFilter />
         </Col>
         <Col lg={8} xs={12}>
           <Row>

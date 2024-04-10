@@ -20,7 +20,7 @@ const AppLayout = () => {
     <div>
       <Navbar expand="lg" className="nav-style pt-0 pb-0" variant='dark'>
         <Container fluid className='mx-1'>
-          <Navbar.Brand href="#">
+          <Navbar.Brand href="/">
             <span className="brand-name">NOTEXT</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
