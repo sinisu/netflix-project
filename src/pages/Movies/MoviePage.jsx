@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSearchMovieQuery } from '../../hooks/useSearchMovie'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { Alert } from 'bootstrap'
 import { Container, Row, Col } from 'react-bootstrap'
 import MovieCard from '../../common/MovieCard/MovieCard'
@@ -8,20 +8,29 @@ import ReactPaginate from 'react-paginate';
 import GenreFilter from './component/GenreFilter'
 import { getGenre } from '../../hooks/getGenre'
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
+import { useFilterMoviesQuery } from '../../hooks/useFilterMovies'
+import api from '../../utils/api'
+import { useQuery } from '@tanstack/react-query'
+import MovieSearch from './component/MovieSearch/MovieSearch'
+
 
 const MoviePage = () => {
   const [query,setQuery] = useSearchParams();
   const keyword = query.get('q');
-  const [filterGenre,setFilterGenre] = useState('');
+  const [genre,setGenre] = useState('');
   const [page, setPage] = useState(1);
   const genreData = useMovieGenreQuery().data;
+  const navigate = useNavigate();
+
   const handlePageClick = ({selected}) => {
     setPage(selected+1)
   }
   const getFilterGenre = (event) => {
-    setFilterGenre(event.target.innerText)
+    let genreName = event.target.innerText.toLowerCase();
+    setGenre(genreName)
   }
-  const { data, isLoading, isError, error } = useSearchMovieQuery({keyword,page})
+
+  const { data, isLoading, isError, error } = useFilterMoviesQuery(genre);
   console.log(data)
   if (isLoading) {
     return <h1>Loading ...</h1>
@@ -35,36 +44,7 @@ const MoviePage = () => {
         <Col lg={4} xs={12}>
           {genreData.map((item)=>(<button onClick={(event)=>getFilterGenre(event)}>{item.name}</button>))}
         </Col>
-        <Col lg={8} xs={12}>
-          <Row>
-            {data?.results.map((movie,index)=>
-              <Col key={index} lg={4} xs={12}>
-                <MovieCard movie={movie} />
-              </Col>
-            )}
-          </Row>
-          <ReactPaginate
-            nextLabel="next >"
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={3}
-            marginPagesDisplayed={2}
-            pageCount={data?.total_pages} //전체페이지
-            previousLabel="< previous"
-            pageClassName="page-item"
-            pageLinkClassName="page-link"
-            previousClassName="page-item"
-            previousLinkClassName="page-link"
-            nextClassName="page-item"
-            nextLinkClassName="page-link"
-            breakLabel="..."
-            breakClassName="page-item"
-            breakLinkClassName="page-link"
-            containerClassName="pagination"
-            activeClassName="active"
-            renderOnZeroPageCount={null}
-            forcePage={page-1}
-          />
-        </Col>
+        <MovieSearch />
       </Row>
     </Container>
   )

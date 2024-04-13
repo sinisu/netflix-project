@@ -6,10 +6,10 @@ const fetchFilterMovies = ({genre}) => {
     return genre?api.get(`discover/movie?with_genres=${genre}`):api.get(`movie/popular`)
 }
 
-export const useFilterMoviesQuery = ({genre}) => {
-    
+export const useFilterMoviesQuery = ({genre}) => {   
     return useQuery({
         queryKey:['movie-filter',genre],
-        queryFn: () => fetchFilterMovies({genre})
+        queryFn: () => fetchFilterMovies({genre}),
+        select:(result)=>result.data
     })
 }

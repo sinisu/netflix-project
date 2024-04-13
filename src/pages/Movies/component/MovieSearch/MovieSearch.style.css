@@ -1,0 +1,9 @@
+.movie-card-area {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0rem;
+}
+
+.movie-card-area div:hover {
+    transform: scale(1);
+}
