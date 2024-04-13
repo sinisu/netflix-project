@@ -24,11 +24,11 @@ const MovieCard = ({movie}) => {
      <div className='overlay'>
         <h3>{movie.title}</h3>
         {genreNameList.map((id)=><Badge bg="danger" className='me-1'>{id}</Badge>)}
-        <div className='mt-3'>
-            <div><FontAwesomeIcon icon={faStar} className='text-warning'/> {Math.round(movie.vote_average*100)/100}</div>
-            <div><FontAwesomeIcon icon={faHeart} className='text-danger'/> {Math.round(movie.popularity)}</div>
-            <div>{movie.adult?'over18':''}</div>
-        </div>
+        <p className='mt-3'>
+            <span><FontAwesomeIcon icon={faStar} className='text-warning'/> {Math.round(movie.vote_average*100)/100}</span><br/>
+            <span><FontAwesomeIcon icon={faHeart} className='text-danger'/> {Math.round(movie.popularity)}</span>
+            <span>{movie.adult?'over18':''}</span>
+        </p>
      </div>
     </div>
   )

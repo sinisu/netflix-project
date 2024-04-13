@@ -1,50 +1,46 @@
-import React, { useEffect, useState } from 'react'
-import { useSearchMovieQuery } from '../../hooks/useSearchMovie'
-import { useNavigate, useSearchParams } from 'react-router-dom'
-import { Alert } from 'bootstrap'
-import { Container, Row, Col } from 'react-bootstrap'
-import MovieCard from '../../common/MovieCard/MovieCard'
-import ReactPaginate from 'react-paginate';
-import GenreFilter from './component/GenreFilter'
-import { getGenre } from '../../hooks/getGenre'
+import React, { useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
+import { Container, Row, Col, Dropdown } from 'react-bootstrap'
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
-import { useFilterMoviesQuery } from '../../hooks/useFilterMovies'
-import api from '../../utils/api'
-import { useQuery } from '@tanstack/react-query'
 import MovieSearch from './component/MovieSearch/MovieSearch'
+
+import './MoviePage.style.css'
+import MovieGenre from './component/MovieGenre/MovieGenre'
 
 
 const MoviePage = () => {
   const [query,setQuery] = useSearchParams();
   const keyword = query.get('q');
   const [genre,setGenre] = useState('');
-  const [page, setPage] = useState(1);
   const genreData = useMovieGenreQuery().data;
-  const navigate = useNavigate();
+  const [sort,setSort] = useState('popularity.desc');
 
-  const handlePageClick = ({selected}) => {
-    setPage(selected+1)
-  }
   const getFilterGenre = (event) => {
-    let genreName = event.target.innerText.toLowerCase();
-    setGenre(genreName)
+    let genreId = event.target.id;
+    setGenre(genreId)
   }
 
-  const { data, isLoading, isError, error } = useFilterMoviesQuery(genre);
-  console.log(data)
-  if (isLoading) {
-    return <h1>Loading ...</h1>
-  }
-  if (isError) {
-    return <Alert variant='danger'>{error.message}</Alert>
-  }
   return (
     <Container>
       <Row>
         <Col lg={4} xs={12}>
-          {genreData.map((item)=>(<button onClick={(event)=>getFilterGenre(event)}>{item.name}</button>))}
+          <h2>GENRE</h2>
+          {genreData?.map((item)=>(<button className='genre-button' onClick={(event)=>getFilterGenre(event)} id={item.id} key={item.id}>{item.name}</button>))}
+          {/* <Dropdown>
+            <Dropdown.Toggle>
+              골라골라
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item id='a' onBlur={(event)=>console.log(event)}>인기높</Dropdown.Item>
+              <Dropdown.Item id='b' onBlur={(event)=>console.log(event)}>인기낮</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown> */}
+          <h2>SORT</h2>
+          <button className='genre-button' onClick={()=>setSort('popularity.desc')}>POPULARITY</button>
+          <button className='genre-button' onClick={()=>setSort('vote_average.desc')}>RATING</button>
+          <button className='genre-button' onClick={()=>setSort('primary_release_date')}>RELEASE</button>
         </Col>
-        <MovieSearch />
+        {keyword?<MovieSearch />:<MovieGenre genre={genre} sort={sort}/>}
       </Row>
     </Container>
   )

@@ -1,28 +1,23 @@
 import React, { useState } from 'react'
-import { Alert, Col, Row } from 'react-bootstrap'
-import { useSearchMovieQuery } from '../../../../hooks/useSearchMovie';
-import { useSearchParams } from 'react-router-dom';
+import { Alert, Col, Row } from 'react-bootstrap';
 import MovieCard from '../../../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
-import './MovieSearch.style.css'
+import { useFilterMoviesQuery } from '../../../../hooks/useFilterMovies';
 
-const MovieSearch = () => {
-    const [query,setQuery] = useSearchParams();
-    const keyword = query.get('q');
+
+const MovieGenre = (genre,sort) => {
     const [page, setPage] = useState(1);
-
     const handlePageClick = ({selected}) => {
         setPage(selected+1)
     }
-
-    const { data, isLoading, isError, error } = useSearchMovieQuery({keyword,page});
-     console.log(data)
-    if (isLoading) {
-        return <h1>Loading ...</h1>
-    }
-    if (isError) {
-        return <Alert variant='danger'>{error.message}</Alert>
-    }
+    const { data, isLoading, isError, error } = useFilterMoviesQuery({genre,sort,page});
+    console.log(data)
+  if (isLoading) {
+    return <h1>Loading ...</h1>
+  }
+  if (isError) {
+    return <Alert variant='danger'>{error.message}</Alert>
+  }
   return (
     <Col lg={8} xs={12}>
         <Row>
@@ -58,4 +53,4 @@ const MovieSearch = () => {
   )
 }
 
-export default MovieSearch
+export default MovieGenre

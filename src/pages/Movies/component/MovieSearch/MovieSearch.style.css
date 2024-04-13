@@ -4,6 +4,11 @@
     margin: 1rem 0rem;
 }
 
+.movie-card-area div {
+    width: 16rem;
+    height: 24rem;
+}
+
 .movie-card-area div:hover {
     transform: scale(1);
 }
