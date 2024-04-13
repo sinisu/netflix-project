@@ -31,7 +31,7 @@ const AppLayout = () => {
               navbarScroll
             >
               <Nav.Link href="/">HOME</Nav.Link>
-              <Nav.Link href="movies">MOVIES</Nav.Link>
+              <Nav.Link href="/movies">MOVIES</Nav.Link>
 
             </Nav>
             <Form className="d-flex" onSubmit={searchByKeyword}>
@@ -43,7 +43,7 @@ const AppLayout = () => {
                 value={keyword}
                 onChange={(event)=>setKeyword(event.target.value)}
               />
-              <Button variant="outline-danger">SEARCH</Button>
+              <Button variant="outline-danger" onClick={searchByKeyword}>SEARCH</Button>
             </Form>
           </Navbar.Collapse>
         </Container>

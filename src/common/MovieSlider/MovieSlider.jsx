@@ -5,11 +5,12 @@ import 'react-multi-carousel/lib/styles.css';
 import MovieCard from '../MovieCard/MovieCard';
 
 const MovieSlider = ({title,movies, responsive}) => {
+  console.log(title)
   const getDevice = () => {
-    if (/Android|iPhone/i.test(navigator.userAgent)) {
+    if (/Android|iPhone/i.test(navigator.userAgent)||title==='RECOMMENDATION MOVIES') {
       return false
     } else { return true}
-  } 
+  }
   return (
     <div className='slide-margin'>
       <h3 className='slide-title'>{title}</h3>

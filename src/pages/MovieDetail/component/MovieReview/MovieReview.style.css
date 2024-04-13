@@ -1,0 +1,32 @@
+h4 {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.85em;
+    font-weight: 700;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+}
+
+.review-box{
+    border: 1px solid rgb(202, 2, 2);
+    border-radius: 1rem;
+    margin: 0.5rem 0rem;
+    padding: 0.5rem 1rem;
+}
+
+.review-text{
+    height: 4.5rem;
+    overflow: hidden;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    color: white;
+}

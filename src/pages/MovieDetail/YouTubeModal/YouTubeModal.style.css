@@ -1,0 +1,17 @@
+.modal-style {
+    background-color: rgb(14, 14, 14);
+}
+
+.modal-style div {
+    border:none;
+}
+
+.modal-style button {
+ border: 1px solid tomato;
+}
+
+.modal-player {
+    display: flex;
+    justify-content: center !important;
+}
+

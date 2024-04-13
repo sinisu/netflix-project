@@ -1,0 +1,8 @@
+.recommend-area {
+    display: flex;
+    justify-content: center;
+}
+
+.recommend-center{
+    width: 75%;
+}

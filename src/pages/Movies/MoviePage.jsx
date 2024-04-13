@@ -6,13 +6,20 @@ import { Container, Row, Col } from 'react-bootstrap'
 import MovieCard from '../../common/MovieCard/MovieCard'
 import ReactPaginate from 'react-paginate';
 import GenreFilter from './component/GenreFilter'
+import { getGenre } from '../../hooks/getGenre'
+import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
 
 const MoviePage = () => {
   const [query,setQuery] = useSearchParams();
   const keyword = query.get('q');
+  const [filterGenre,setFilterGenre] = useState('');
   const [page, setPage] = useState(1);
+  const genreData = useMovieGenreQuery().data;
   const handlePageClick = ({selected}) => {
     setPage(selected+1)
+  }
+  const getFilterGenre = (event) => {
+    setFilterGenre(event.target.innerText)
   }
   const { data, isLoading, isError, error } = useSearchMovieQuery({keyword,page})
   console.log(data)
@@ -26,7 +33,7 @@ const MoviePage = () => {
     <Container>
       <Row>
         <Col lg={4} xs={12}>
-          <GenreFilter />
+          {genreData.map((item)=>(<button onClick={(event)=>getFilterGenre(event)}>{item.name}</button>))}
         </Col>
         <Col lg={8} xs={12}>
           <Row>
