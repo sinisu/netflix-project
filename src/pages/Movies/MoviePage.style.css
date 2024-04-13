@@ -1,6 +1,32 @@
 .genre-button {
     border-radius: 1rem;
+    width: 8rem;
     background-color: rgb(235, 57, 72);
     padding: 0.3rem 0.8rem;
-    margin: 0.25rem 0.5rem;
+    margin: 0.25rem 0.25rem;
+    font-weight: 700;
+}
+
+.toggle-box {
+    width: 100%;
+    height: 3rem;
+    background-color: transparent !important;
+    border-color: white;
+}
+
+.toggle-box:hover {
+    border-color: white;
+}
+
+.toggle-box:active {
+    border-color: white !important;
+}
+
+.toggle-menu {
+    width: 100%;
+    background-color: rgb(34, 34, 34);
+}
+
+.toggle-text {
+    color: white;
 }

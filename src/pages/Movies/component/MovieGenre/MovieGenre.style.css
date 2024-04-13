@@ -1,18 +1,3 @@
-.movie-card-area {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0rem;
-}
-
-.movie-card-area div {
-    width: 16rem;
-    height: 24rem;
-}
-
-.movie-card-area div:hover {
-    transform: scale(1);
-}
-
 .page-links {
     color: white;
     font-weight: 700;

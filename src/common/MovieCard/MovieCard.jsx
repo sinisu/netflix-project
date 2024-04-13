@@ -5,7 +5,7 @@ import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
 import { getGenre } from '../../hooks/getGenre'
 import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHeart, faStar } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faHeart, faStar } from '@fortawesome/free-solid-svg-icons'
 
 const MovieCard = ({movie}) => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const MovieCard = ({movie}) => {
   const getMovieId = (id) => {
     navigate(`/movies/${id}`)
   }
-
+  console.log(movie)
   return (
     <div
         style={{backgroundImage:"url("+`https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`+")"}}
@@ -26,8 +26,9 @@ const MovieCard = ({movie}) => {
         {genreNameList.map((id)=><Badge bg="danger" className='me-1'>{id}</Badge>)}
         <p className='mt-3'>
             <span><FontAwesomeIcon icon={faStar} className='text-warning'/> {Math.round(movie.vote_average*100)/100}</span><br/>
-            <span><FontAwesomeIcon icon={faHeart} className='text-danger'/> {Math.round(movie.popularity)}</span>
+            <span><FontAwesomeIcon icon={faHeart} className='text-danger'/> {Math.round(movie.popularity)}</span><br/>
             <span>{movie.adult?'over18':''}</span>
+            <span><FontAwesomeIcon icon={faCheck} className='text-info'/> {movie.release_date}</span>
         </p>
      </div>
     </div>

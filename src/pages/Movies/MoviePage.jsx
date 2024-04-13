@@ -3,9 +3,10 @@ import { useSearchParams } from 'react-router-dom'
 import { Container, Row, Col, Dropdown } from 'react-bootstrap'
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
 import MovieSearch from './component/MovieSearch/MovieSearch'
-
-import './MoviePage.style.css'
 import MovieGenre from './component/MovieGenre/MovieGenre'
+import './MoviePage.style.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowDown, faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 
 const MoviePage = () => {
@@ -24,18 +25,17 @@ const MoviePage = () => {
     <Container>
       <Row>
         <Col lg={4} xs={12}>
-          <h2>GENRE</h2>
-          {genreData?.map((item)=>(<button className='genre-button' onClick={(event)=>getFilterGenre(event)} id={item.id} key={item.id}>{item.name}</button>))}
-          {/* <Dropdown>
-            <Dropdown.Toggle>
-              골라골라
+          <h2 className='mt-5'>GENRE</h2>
+          {/* {genreData?.map((item)=>(<button className='genre-button' onClick={(event)=>getFilterGenre(event)} id={item.id} key={item.id}>{item.name}</button>))} */}
+          <Dropdown>
+            <Dropdown.Toggle bsPrefix={'toggle-box'}>
+              CHOOSE A GENRE  <FontAwesomeIcon icon={faChevronDown} />
             </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item id='a' onBlur={(event)=>console.log(event)}>인기높</Dropdown.Item>
-              <Dropdown.Item id='b' onBlur={(event)=>console.log(event)}>인기낮</Dropdown.Item>
+            <Dropdown.Menu className={'toggle-menu'}>
+              {genreData?.map((item)=>(<Dropdown.Item onBlur={(event)=>getFilterGenre(event)} id={item.id} key={item.id} className={'toggle-text'}>{item.name}</Dropdown.Item>))}
             </Dropdown.Menu>
-          </Dropdown> */}
-          <h2>SORT</h2>
+          </Dropdown>
+          <h2 className='mt-5'>SORT</h2>
           <button className='genre-button' onClick={()=>setSort('popularity.desc')}>POPULARITY</button>
           <button className='genre-button' onClick={()=>setSort('vote_average.desc')}>RATING</button>
           <button className='genre-button' onClick={()=>setSort('primary_release_date')}>RELEASE</button>

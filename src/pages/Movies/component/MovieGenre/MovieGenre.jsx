@@ -3,7 +3,7 @@ import { Alert, Col, Row } from 'react-bootstrap';
 import MovieCard from '../../../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
 import { useFilterMoviesQuery } from '../../../../hooks/useFilterMovies';
-
+import './MovieGenre.style.css'
 
 const MovieGenre = (genre,sort) => {
     const [page, setPage] = useState(1);
@@ -34,17 +34,17 @@ const MovieGenre = (genre,sort) => {
                 marginPagesDisplayed={2}
                 pageCount={data?.total_pages} //전체페이지
                 previousLabel="< previous"
-                pageClassName="page-item"
-                pageLinkClassName="page-link"
-                previousClassName="page-item"
-                previousLinkClassName="page-link"
-                nextClassName="page-item"
-                nextLinkClassName="page-link"
+                // pageClassName="page-item"
+                pageLinkClassName="page-links"
+                // previousClassName="page-item"
+                previousLinkClassName="page-links"
+                // nextClassName="page-item"
+                nextLinkClassName="page-links"
                 breakLabel="..."
-                breakClassName="page-item"
-                breakLinkClassName="page-link"
-                containerClassName="pagination"
-                activeClassName="active"
+                // breakClassName="page-item"
+                // breakLinkClassName="page-link"
+                containerClassName="paginations"
+                activeClassName="page-links-active"
                 renderOnZeroPageCount={null}
                 forcePage={page-1}
             />
