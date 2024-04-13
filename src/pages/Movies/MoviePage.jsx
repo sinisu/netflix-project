@@ -24,7 +24,7 @@ const MoviePage = () => {
   return (
     <Container>
       <Row>
-        <Col lg={4} xs={12}>
+        <Col lg={4} xs={12} className='filter-area'>
           <h2 className='mt-5'>GENRE</h2>
           {/* {genreData?.map((item)=>(<button className='genre-button' onClick={(event)=>getFilterGenre(event)} id={item.id} key={item.id}>{item.name}</button>))} */}
           <Dropdown>

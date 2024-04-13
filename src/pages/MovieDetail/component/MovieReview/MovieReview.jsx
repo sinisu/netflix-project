@@ -13,7 +13,6 @@ const MovieReview = () => {
             ...prevViewAllText,
             [id]: !prevViewAllText[id]
         }))
-        
     }
     const {data,isLoading,isError,error} = useMovieReview(id)
     if (isLoading) {
@@ -22,7 +21,6 @@ const MovieReview = () => {
     if (isError) {
         <Alert>{error.message}</Alert>
     }
-    console.log(data)
   return (
     <Container className='center'>
         <Col lg={10}>

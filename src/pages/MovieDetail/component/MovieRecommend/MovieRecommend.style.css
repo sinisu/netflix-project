@@ -6,3 +6,17 @@
 .recommend-center{
     width: 75%;
 }
+
+@media screen  and (max-width: 60rem) {
+    .recommend-area {
+        margin-top: 1.5rem;
+    }
+
+    .recommend-area h3 {
+        font-size: 1.3rem !important;
+    }
+
+    .recommend-center {
+        width: 100%;
+    }
+}

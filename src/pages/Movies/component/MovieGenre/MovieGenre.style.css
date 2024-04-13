@@ -25,3 +25,13 @@
     color: #fefefe;
     align-items: center;
 }
+
+@media screen  and (max-width: 60rem) {
+    .paginations {
+        gap: 0.5rem;
+    }
+
+    .page-links {
+        padding: 0.5rem;
+    }
+}

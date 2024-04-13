@@ -30,3 +30,9 @@ button {
     border: none;
     color: white;
 }
+
+@media screen  and (max-width: 60rem) {
+    .review-box h2 {
+        font-size: 1.55rem;
+    }
+}

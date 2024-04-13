@@ -33,12 +33,12 @@ const MovieSearch = () => {
             )}
         
             <ReactPaginate
-                nextLabel="next >"
+                nextLabel=">"
                 onPageChange={handlePageClick}
                 pageRangeDisplayed={3}
                 marginPagesDisplayed={2}
                 pageCount={data?.total_pages} //전체페이지
-                previousLabel="< previous"
+                previousLabel="<"
                 // pageClassName="page-item"
                 pageLinkClassName="page-links"
                 // previousClassName="page-item"

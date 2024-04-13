@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import MovieSlider from '../../../../common/MovieSlider/MovieSlider'
 import { responsive } from '../../../../constants/responsive';
 import './MovieRecommend.style.css'
-import { Col } from 'react-bootstrap';
+import { Alert, Col } from 'react-bootstrap';
 
 const MovieRecommend = () => {
     let {id} = useParams();
@@ -13,7 +13,12 @@ const MovieRecommend = () => {
     if (data) {
         recommendMovies = data.results;
     }
-    console.log(data)
+    if (isLoading) {
+      return <h1>Loading...</h1>
+    }
+    if (isError) {
+      return <Alert>{error.message}</Alert>
+    }
   return (
     <div className='recommend-area'>
         <Col lg={10} className='recommend-center'>

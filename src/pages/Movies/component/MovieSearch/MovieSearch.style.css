@@ -40,3 +40,10 @@
     color: #fefefe;
     align-items: center;
 }
+
+@media screen  and (max-width: 60rem) {
+    .movie-card-area div {
+        width: 100%;
+        height: 150vw;
+    }
+}
