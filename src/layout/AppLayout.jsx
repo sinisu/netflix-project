@@ -23,7 +23,7 @@ const AppLayout = () => {
           <Navbar.Brand href="/">
             <span className="brand-name">NOTEXT</span>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Toggle aria-controls="navbarScroll" onClick={(event)=>console.log(event)}/>
           <Navbar.Collapse id="navbarScroll">
             <Nav
               className="me-auto my-2 my-lg-0"
@@ -34,7 +34,7 @@ const AppLayout = () => {
               <Nav.Link href="/movies">MOVIES</Nav.Link>
 
             </Nav>
-            <Form className="d-flex" onSubmit={searchByKeyword}>
+            <Form className="d-flex" onSubmit={searchByKeyword} expand={true}>
               <Form.Control
                 type="search"
                 placeholder="SEARCH"
@@ -43,7 +43,7 @@ const AppLayout = () => {
                 value={keyword}
                 onChange={(event)=>setKeyword(event.target.value)}
               />
-              <Button variant="outline-danger" onClick={searchByKeyword}>SEARCH</Button>
+              <Button variant="outline-danger" type='submit'>SEARCH</Button>
             </Form>
           </Navbar.Collapse>
         </Container>

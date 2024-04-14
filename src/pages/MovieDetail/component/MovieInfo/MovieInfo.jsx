@@ -22,13 +22,13 @@ const MovieInfo = () => {
   return (
     <Container>
       <Row className='poster-box-margin'>
-        <Col className='poster-area' xs={12}>
+        <Col className='poster-area' lg={6} xs={12}>
           <div
             style={{backgroundImage:"url("+`https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${data.poster_path}`+")"}}
             className='detail-poster'>
           </div>
         </Col>
-        <Col className='detail-text' xs={12}>
+        <Col className='detail-text' lg={6} xs={12}>
         {data.genres.map((item)=><Badge bg="danger" className='me-1'>{item.name}</Badge>)}
           <h1 className='mt-3'>{data.title.toUpperCase()}</h1>
           <h3>{data.tagline}</h3>
