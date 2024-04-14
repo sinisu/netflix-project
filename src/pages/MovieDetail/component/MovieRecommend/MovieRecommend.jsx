@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import MovieSlider from '../../../../common/MovieSlider/MovieSlider'
 import { responsive } from '../../../../constants/responsive';
 import './MovieRecommend.style.css'
-import { Alert, Col } from 'react-bootstrap';
+import { Alert, Col, Container } from 'react-bootstrap';
 
 const MovieRecommend = () => {
     let {id} = useParams();
@@ -20,7 +20,7 @@ const MovieRecommend = () => {
       return <Alert>{error.message}</Alert>
     }
   return (
-    <div className='recommend-area'>
+    <Container className='recommend-area'>
         <Col lg={10} className='recommend-center'>
            <MovieSlider
           title={'RECOMMENDATION MOVIES'}
@@ -28,8 +28,7 @@ const MovieRecommend = () => {
           responsive={responsive}
           infinite={false}/> 
         </Col>
-      
-    </div>
+    </Container>
   )
 }
 

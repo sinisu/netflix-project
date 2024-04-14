@@ -14,7 +14,6 @@ const MovieCard = ({movie}) => {
   const getMovieId = (id) => {
     navigate(`/movies/${id}`)
   }
-  console.log(movie)
   return (
     <div
         style={{backgroundImage:"url("+`https://media.themoviedb.org/t/p/w300_and_h450_bestv2/${movie.poster_path}`+")"}}

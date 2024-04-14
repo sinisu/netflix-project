@@ -33,6 +33,10 @@
     display: none;
 }
 
+.preview-btn {
+    z-index: 3;
+}
+
 @media screen  and (max-width: 60rem) {
     .banner {
         border: 0.5px solid rgb(37, 37, 37);
