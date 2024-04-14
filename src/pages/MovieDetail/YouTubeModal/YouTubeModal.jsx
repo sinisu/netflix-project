@@ -7,9 +7,7 @@ import './YouTubeModal.style.css'
 export const YouTubeModal = (props) => {
     let {id} = useParams();
     let videoId = '';
-    console.log(id)
     id?id=id:id=props.id
-    console.log(id)
     const onPlayerReady: YouTubeProps['onReady'] = (event) => {
         event.target.pauseVideo();
     }
